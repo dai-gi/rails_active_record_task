@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   def exercise1
     # 【要件】注文されていないすべての料理を返すこと
     #   * left_outer_joinsを使うこと
-    @foods = Food
+    @foods = Food.left_outer_joins(:order_foods)
   end
 
   def exercise2
@@ -11,7 +11,7 @@ class ExercisesController < ApplicationController
     @shops = Shop
   end
 
-  def exercise3 
+  def exercise3
     # 【要件】配達先の一番多い住所を返すこと
     #   * joinsを使うこと
     #   * 取得したAddressのインスタンスにorders_countと呼びかけると注文の数を返すこと
