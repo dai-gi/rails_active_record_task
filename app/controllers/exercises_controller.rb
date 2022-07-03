@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   def exercise1
     # 【要件】注文されていないすべての料理を返すこと
     #   * left_outer_joinsを使うこと
-    @foods = Food.left_outer_joins(:order_foods)
+    @foods = Food.left_outer_joins(:order_foods).distinct
   end
 
   def exercise2
@@ -18,7 +18,7 @@ class ExercisesController < ApplicationController
     @address = Address
   end
 
-  def exercise4 
+  def exercise4
     # 【要件】一番お金を使っている顧客を返すこと
     #   * joinsを使うこと
     #   * 取得したCustomerのインスタンスにfoods_price_sumと呼びかけると合計金額を返すこと
